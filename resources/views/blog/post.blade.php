@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,16 +9,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>My Notes</title>
+    <title>Blog Post - Start Bootstrap Template</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/css/bootstrap.css" rel="stylesheet">
-     <!-- Fonts -->
-     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
     <!-- Custom CSS -->
-    <link href="/css/blog-home.css" rel="stylesheet">
+    <link href="/css/blog-post.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -69,27 +65,59 @@
 
         <div class="row">
 
-            <!-- Blog Entries Column -->
-            <div class="col-md-8">
+            <!-- Blog Post Content Column -->
+            <div class="col-lg-8">
 
-                @yield('content')
-                
+                <!-- Blog Post -->
 
-                
-                <!-- Pager -->
-                {{-- <ul class="pager">
-                    <li class="previous">
-                        <a href="#">&larr; Older</a>
-                    </li>
-                    <li class="next">
-                        <a href="#">Newer &rarr;</a>
-                    </li>
-                </ul> --}}
+                <!-- Title -->
+                <h1>{{ $post->post_title }}</h1>
+
+                <!-- Author -->
+                <p class="lead">
+                    by <a href="#">{{ $post->post_author }}</a>
+                </p>
+
+                <hr>
+
+                <!-- Date/Time -->
+                <p><span class="glyphicon glyphicon-time"></span> Diposting pada {{ $post->post_date }}</p>
+
+                <hr>
+
+                <!-- Preview Image -->
+                <img class="img-responsive" src="{{ URL::to('/') }}/img/{{ $post->post_image }}" alt="">
+
+                <hr>
+
+                <!-- Post Content -->
+                <p> {{ $post->post_content }} </p>
+                <hr>
+
+                <!-- Blog Comments -->
+
+                <!-- Comments Form -->
+                <div class="well">
+                    <h4>Leave a Comment:</h4>
+                    <form role="form">
+                        <div class="form-group">
+                            <textarea class="form-control" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+
+                <hr>
+
+                <!-- Posted Comments -->
+
+                <!-- Comment -->
+               
 
             </div>
 
-            <!-- Blog Sidebar Widgets Column -->
-            <div class="col-md-4">
+               <!-- Blog Sidebar Widgets Column -->
+               <div class="col-md-4">
 
                 <!-- Blog Search Well -->
                 <div class="well">
@@ -122,7 +150,7 @@
                             
                                
                                     
-                                    <li><a href="/blog/category/{{$category->cat_id}}"> {{ $category->cat_title }} </a>
+                                    <li><a href="#"> {{ $category->cat_title }} </a>
                                   
                             
                             
@@ -147,9 +175,8 @@
         </div>
         <!-- /.row -->
 
-        {{-- <hr> --}}
+        <hr>
 
-        <!-- Footer -->
         <footer>
             <div class="row">
                 <div class="col-lg-12">

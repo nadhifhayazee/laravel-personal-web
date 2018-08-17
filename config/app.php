@@ -211,4 +211,6 @@ return [
 
     ],
 
+    'Helpers' => 'App\Http\AdminController'
+
 ];

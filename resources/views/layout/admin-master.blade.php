@@ -47,7 +47,10 @@
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
-             
+                
+                <li>
+                    <a href="/blog">Home</a>
+                </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{$admin->admin_name}} <b class="caret"></b></a>
                     <ul class="dropdown-menu">
@@ -71,11 +74,14 @@
                     </li>
                    
                     
-                    <li class="active">
+                    <li>
                         <a href="/admin"><i class="fa fa-fw fa-file"></i> Daftar Postingan</a>
                     </li>
                     <li>
-                        <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> Pengaturan</a>
+                            <a href="/admin/kategori"><i class="fa fa-fw fa-table"></i> Kategori</a>
+                    </li>
+                    <li>
+                        <a href="/admin/profil"><i class="fa fa-fw fa-dashboard"></i> Profil</a>
                     </li>
                 </ul>
             </div>
@@ -91,9 +97,9 @@
                     <div class="col-lg-12">
                         <h1 class="page-header">
                             Selamat Datang
-                            {{-- @foreach($admin as $mydata) --}}
+                           
                             <small>{{ $admin->admin_name }}</small>
-                            {{-- @endforeach --}}
+                  
                         </h1>
                         <ol class="breadcrumb">
                             <li>
@@ -123,6 +129,8 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="/mimin/js/bootstrap.min.js"></script>
+
+    <script src="/mimin/js/app.js"></script>
 
 </body>
 

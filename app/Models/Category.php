@@ -11,4 +11,6 @@ class Category extends Model
     protected $fillable = [
         'cat_id', 
         'cat_title'];
+
+    protected $primaryKey = 'cat_id';
 }

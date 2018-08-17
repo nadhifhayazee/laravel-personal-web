@@ -5,13 +5,7 @@
 <form action="/admin" method="post" class="form-horizontal" enctype="multipart/form-data">
     {{ csrf_field() }}
 
-    <div class="form-group">
-        <label for="post_category_id" class="col-sm-2 control-label">Kategori Id</label>
-        <div class="col-sm-10">
-            <input type="text" name="post_category_id" class="form-control" placeholder="Kategori_id">
-        </div>
 
-    </div>
     <div class="form-group">
         <label for="post_title" class="col-sm-2 control-label">Judul Post</label>
         <div class="col-sm-10">
@@ -19,6 +13,22 @@
         </div>
 
     </div>
+
+    <div class="form-group">
+        <label for="post_category_id" class="col-sm-2 control-label">Kategori</label>
+        <div class="col-sm-10">
+            {{-- <input type="text" name="post_category_id" class="form-control" placeholder="Kategori_id"> --}}
+            <select name="post_category_id" class="form-control">
+                @foreach($categories as $category)
+                    
+                        <option value="{{ $category->cat_id }}">{{ $category->cat_title }}</option>
+                    
+                @endforeach
+            </select>
+        </div>
+
+    </div>
+    
     <div class="form-group">
         <label for="post_author" class="col-sm-2 control-label">Penulis</label>
         <div class="col-sm-10">
@@ -43,7 +53,8 @@
     <div class="form-group">
         <label for="post_content" class="col-sm-2 control-label">Konten</label>
         <div class="col-sm-10">
-            <textarea name="post_content" rows="20" class="form-control" placeholder="Konten Post"></textarea>
+            <textarea onkeydown="if(event.keyCode===9){var v=this.value,s=this.selectionStart,e=this.selectionEnd;this.value=v.substring(0, s)+'\t'+v.substring(e);this.selectionStart=this.selectionEnd=s+1;return false;}"
+             name="post_content" rows="20" class="form-control" placeholder="Konten Post"></textarea>
         </div>
 
     </div>

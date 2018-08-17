@@ -34,7 +34,7 @@
     <img class="img-responsive" src="{{ URL::to('/') }}/img/{{ $post->post_image }}" alt="">
     <hr>
     <p> {{ $post->post_content }} </p>
-    <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+    <a class="btn btn-primary" href="/blog/post/{{$post->post_title}}">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 
     <hr>
     
