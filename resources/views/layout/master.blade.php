@@ -71,6 +71,7 @@
 
             <!-- Blog Entries Column -->
             <div class="col-md-8">
+                
 
                 @yield('content')
                 
@@ -137,9 +138,10 @@
                 </div>
 
                 <!-- Side Widget Well -->
-                <div class="well">
-                    <h4>Side Widget Well</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
+                <div class="well text-center">
+                    <h4 class="">Super Quote</h4>
+                    <p><em>" Jika kau tidak tahan dengan lelahnya belajar maka kau akan merasakan pahitnya kebodohan "</em></p>
+                    <p><em>~ Imam Syafi'i Rodhiallahuanhu</em></p>
                 </div>
 
             </div>
@@ -164,6 +166,7 @@
     <!-- /.container -->
 
     <!-- jQuery -->
+    <script id="dsq-count-scr" src="//nadhifhayazee.disqus.com/count.js" async></script>
     <script src="js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->

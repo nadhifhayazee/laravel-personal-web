@@ -1,201 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layout.master') @section('content')
 
-<head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<h1><strong>{{ $post->post_title }}</strong></h1>
 
-    <title>Blog Post - Start Bootstrap Template</title>
+<!-- Author -->
+<p class="lead">
+    by
+    <a href="#">{{ $post->post_author }}</a>
+</p>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
+<hr>
 
-    <!-- Custom CSS -->
-    <link href="/css/blog-post.css" rel="stylesheet">
+<!-- Date/Time -->
+<p>
+    <span class="glyphicon glyphicon-time"></span> Diposting pada {{ $post->post_date }}</p>
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+<hr>
 
-</head>
+<!-- Preview Image -->
+<img class="img-responsive" src="{{ URL::to('/') }}/img/{{ $post->post_image }}" alt="">
 
-<body>
+<hr>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/blog">nadhifhayazee</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="/blog">Blog</a>
-                    </li>
-                    <li>
-                        <a href="#">Tentang Penulis</a>
-                    </li>
-                    <li>
-                        <a href="/blog/login-admin">Login Admin</a> 
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
+<!-- Post Content -->
+<p style="font-size: 17px; white-space: pre-line;  text-align: justify;"> {{ $post->post_content }} </p>
+<hr>
 
-    <!-- Page Content -->
-    <div class="container">
+<div id="disqus_thread"></div>
+<script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function () { // DON'T EDIT BELOW THIS LINE
+        var d = document,
+            s = d.createElement('script');
+        s.src = 'https://nadhifhayazee.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+</noscript>
 
-        <div class="row">
 
-            <!-- Blog Post Content Column -->
-            <div class="col-lg-8">
-
-                <!-- Blog Post -->
-
-                <!-- Title -->
-                <h1>{{ $post->post_title }}</h1>
-
-                <!-- Author -->
-                <p class="lead">
-                    by <a href="#">{{ $post->post_author }}</a>
-                </p>
-
-                <hr>
-
-                <!-- Date/Time -->
-                <p><span class="glyphicon glyphicon-time"></span> Diposting pada {{ $post->post_date }}</p>
-
-                <hr>
-
-                <!-- Preview Image -->
-                <img class="img-responsive" src="{{ URL::to('/') }}/img/{{ $post->post_image }}" alt="">
-
-                <hr>
-
-                <!-- Post Content -->
-                <p> {{ $post->post_content }} </p>
-                <hr>
-
-                <!-- Blog Comments -->
-
-                <!-- Comments Form -->
-                <div class="well">
-                    <h4>Leave a Comment:</h4>
-                    <form role="form">
-                        <div class="form-group">
-                            <textarea class="form-control" rows="3"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-                </div>
-
-                <hr>
-
-                <!-- Posted Comments -->
-
-                <!-- Comment -->
-               
-
-            </div>
-
-               <!-- Blog Sidebar Widgets Column -->
-               <div class="col-md-4">
-
-                <!-- Blog Search Well -->
-                <div class="well">
-                    <h4>Cari Sesuatu</h4>
-                    <form action="{{ url('blog/search') }}" method="get">
-
-                        <div class="input-group">
-                            <input type="text" name="search" class="form-control">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="submit">
-                                    <span class="glyphicon glyphicon-search"></span>
-                            </button>
-                            {{-- {{ csrf_token() }}   --}}
-                            {{-- <input type="hidden" name="_method" value="get"> --}}
-                            </span>
-                        </div>
-
-                    </form>
-                    <!-- /.input-group -->
-                </div>
-
-                <!-- Blog Categories Well -->
-                <div class="well">
-                    <h4>Ketegori</h4>
-                    <div class="row">
-                        <div class="col-lg-12">
-                           
-                            <ul class="list-unstyled">
-                                @foreach($categories as $category)
-                            
-                               
-                                    
-                                    <li><a href="#"> {{ $category->cat_title }} </a>
-                                  
-                            
-                            
-                                @endforeach
-                            </ul>
-                        
-                        </div>
-                  
-                       
-                    </div>
-                    <!-- /.row -->
-                </div>
-
-                <!-- Side Widget Well -->
-                <div class="well">
-                    <h4>Side Widget Well</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
-                </div>
-
-            </div>
-
-        </div>
-        <!-- /.row -->
-
-        <hr>
-
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p><strong>Copyright &copy; { } With <i style="color: red" class="glyphicon glyphicon-heart"></i> nadhifhayazee 2018</strong></p>
-                </div>
-                <!-- /.col-lg-12 -->
-            </div>
-            <!-- /.row -->
-        </footer>
-
-    </div>
-    <!-- /.container -->
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
-</body>
-
-</html>
+@endsection

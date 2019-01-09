@@ -33,7 +33,7 @@
     <hr>
     <img class="img-responsive" src="{{ URL::to('/') }}/img/{{ $post->post_image }}" alt="">
     <hr>
-    <p> {{ $post->post_content }} </p>
+    <p style="font-size: 17px"> {{ substr($post->post_content,0,150) }}... </p>
     <a class="btn btn-primary" href="/blog/post/{{$post->post_title}}">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 
     <hr>
