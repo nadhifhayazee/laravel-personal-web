@@ -43,3 +43,7 @@ Route::put('/admin/{id}', 'AdminController@update');
 
 
 Route::delete('/admin/{id}', 'AdminController@destroy');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
