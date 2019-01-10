@@ -12,7 +12,7 @@ use App\Models\Admin;
 
 class BlogController extends Controller
 {
-    public function indexlll(){
+    public function index(){
 
         $posts = Post::all();
         $categories = Category::all();
@@ -20,7 +20,7 @@ class BlogController extends Controller
 
     }
 
-    public function searchaaa(Request $request){
+    public function search(Request $request){
 
         $query = $request->get('search');
         $posts = Post::where('post_tags', 'LIKE', '%' . $query . '%')->orWhere(
@@ -28,31 +28,6 @@ class BlogController extends Controller
         $categories = Category::all();
         return view('blog/search', ['posts' => $posts, 'query' => $query, 'categories' => $categories]);
 
-    }
-
-    public function login(){
-        $admin = Admin::find(1);
-        return view('/blog/login-admin', ['admin' => $admin]);
-    }
-
-    public function loginProses(Request $request){
-
-   
-        $admin = Admin::find(1);
-        $user = $request->username;
-        $pass = Hash::make($request->password);
-        if(strcmp($admin->admin_name, $user) == 0 && strcmp($admin->admin_password, $pass) == 0){
-            return redirect('admin');
-        }else 
-        return redirect('blog');
-            // return ('<script>alert("Login Failed!");
-            // windows.location.assign("blog/home");
-            // </script>');
-            // return redirect('blog/home');
-        //  else
-        //     return ('<script>alert("Login Success!")</script>');
-
-        
     }
 
     public function showPost($id){
