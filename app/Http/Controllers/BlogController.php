@@ -12,7 +12,7 @@ use App\Models\Admin;
 
 class BlogController extends Controller
 {
-    public function index(){
+    public function indexlll(){
 
         $posts = Post::all();
         $categories = Category::all();
@@ -20,7 +20,7 @@ class BlogController extends Controller
 
     }
 
-    public function search(Request $request){
+    public function searchaaa(Request $request){
 
         $query = $request->get('search');
         $posts = Post::where('post_tags', 'LIKE', '%' . $query . '%')->orWhere(
