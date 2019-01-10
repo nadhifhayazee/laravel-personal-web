@@ -9,6 +9,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+       <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <title>SB Admin - Bootstrap Admin Template</title>
 
     <!-- Bootstrap Core CSS -->
@@ -16,6 +19,9 @@
 
     <!-- Custom CSS -->
     <link href="/mimin/css/sb-admin.css" rel="stylesheet">
+
+      <!-- Scripts -->
+      <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Custom Fonts -->
     <link href="/mimin/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -60,7 +66,15 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            <a href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                          document.getElementById('logout-form').submit();">
+                             {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
                         </li>
                     </ul>
                 </li>
