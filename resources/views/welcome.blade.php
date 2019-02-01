@@ -83,11 +83,9 @@
                 </div>
 
                 <div class="links">
-                    <a href="https://laravel.com/docs">My Profil</a>
-                    <a href="/blog">Blogs</a>
-                    <a href="https://laravel-news.com">Login</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                  @foreach ($blog as $item)
+                      <a href="#">{{$item['post_title']}}</a>
+                  @endforeach
                 </div>
             </div>
         </div>

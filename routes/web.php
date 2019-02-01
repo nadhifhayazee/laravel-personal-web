@@ -11,10 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-    // return redirect('/blog');
-});
+Route::get('/','Api\ApiBlogController@index');
 
 Route::get('/blog', 'BlogController@index');
 Route::get('/blog/login-admin', 'BlogController@login');
